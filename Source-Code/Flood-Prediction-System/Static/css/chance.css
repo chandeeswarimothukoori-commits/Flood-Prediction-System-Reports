@@ -1,0 +1,472 @@
+/* ==========================================================
+   Rising Waters – chance.css
+   High Flood Risk result page
+   ========================================================== */
+:root {
+    --bg-navy: #0f172a;
+    --bg-navy-2: #0b1226;
+    --blue: #3b82f6;
+    --cyan: #06b6d4;
+    --red: #ef4444;
+    --red-strong: #dc2626;
+    --violet: #8b5cf6;
+    --green: #10b981;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --radius: 20px;
+    --shadow-soft: 0 12px 40px rgba(2, 6, 23, 0.6);
+}
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    background-color: var(--bg-navy);
+    background-image: linear-gradient(
+            rgba(15, 23, 42, 0.85),
+            rgba(15, 23, 42, 0.92)
+        ),
+        url("../images/flood.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: bgZoom 30s ease-in-out infinite alternate;
+}
+@keyframes bgZoom {
+    0% {
+        background-size: 100% auto;
+    }
+    100% {
+        background-size: 115% auto;
+    }
+}
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+            ellipse at top,
+            rgba(59, 130, 246, 0.15),
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at bottom,
+            rgba(239, 68, 68, 0.12),
+            transparent 60%
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+/* ============= Navbar ============= */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.85rem 0;
+}
+.brand-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.45);
+}
+.brand-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #fff, #bae6fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.3px;
+}
+.navbar-nav .nav-link {
+    color: var(--text) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background: rgba(59, 130, 246, 0.18);
+    color: #fff !important;
+}
+/* ============= Hero ============= */
+.hero-alert {
+    padding: 4rem 1rem 2rem;
+}
+.warning-icon-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.warning-icon {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fca5a5, #ef4444 60%, #7f1d1d);
+    color: #fff;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.7), 0 0 90px rgba(239, 68, 68, 0.35);
+    animation: pulseWarn 1.8s ease-in-out infinite;
+}
+@keyframes pulseWarn {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 70px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        transform: scale(1.07);
+        box-shadow: 0 0 55px rgba(239, 68, 68, 0.95),
+            0 0 120px rgba(239, 68, 68, 0.45);
+    }
+}
+.hero-title {
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    background: linear-gradient(135deg, #ffffff, #93c5fd 50%, #67e8f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+.hero-subtitle {
+    color: var(--text-muted);
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+.hero-subtitle strong {
+    color: #fca5a5;
+}
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #fff;
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.6),
+        0 0 60px rgba(239, 68, 68, 0.3);
+    animation: badgeGlow 2s ease-in-out infinite;
+}
+@keyframes badgeGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.55),
+            0 0 45px rgba(239, 68, 68, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(239, 68, 68, 0.9),
+            0 0 80px rgba(239, 68, 68, 0.45);
+    }
+}
+/* ============= Glass Cards ============= */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: var(--shadow-soft);
+    color: var(--text);
+    animation: floatCard 6s ease-in-out infinite;
+}
+.glass-card.safety-card {
+    animation-delay: 0.6s;
+}
+@keyframes floatCard {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+.card-heading {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0;
+}
+.gradient-text {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.section-title {
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #fff;
+}
+.text-light-muted {
+    color: var(--text-muted) !important;
+}
+.text-danger-strong {
+    color: #fca5a5 !important;
+    font-weight: 700;
+}
+/* ============= Prediction Result ============= */
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+.result-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+}
+.result-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    flex: 0 0 auto;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+.bg-red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.bg-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.bg-cyan { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.bg-violet { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.bg-green { background: linear-gradient(135deg, #10b981, #047857); }
+.result-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.result-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+/* ============= Risk Meter ============= */
+.risk-meter {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+.risk-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+.risk-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 14;
+}
+.risk-progress {
+    fill: none;
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-dasharray: 534;
+    stroke-dashoffset: 534;
+    transition: stroke-dashoffset 2s ease-out;
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.6));
+}
+.risk-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.risk-percent {
+    font-size: 2.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fca5a5, #ef4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+}
+.risk-label {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 0.4rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+/* ============= Safety Cards ============= */
+.safety-card h5 {
+    color: #fff;
+    font-weight: 600;
+    margin: 0.9rem 0 0.4rem;
+}
+.safety-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0;
+    line-height: 1.5;
+}
+.safety-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+/* ============= Emergency ============= */
+.emergency-card {
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.12),
+        rgba(59, 130, 246, 0.1)
+    );
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.05rem;
+    flex: 0 0 auto;
+}
+.contact-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+}
+.contact-number {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.05rem;
+}
+/* ============= Buttons ============= */
+.btn-rw {
+    border-radius: 14px;
+    padding: 0.85rem 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+.btn-rw:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+.btn-primary-rw {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+.btn-primary-rw:hover {
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.7),
+        0 0 60px rgba(6, 182, 212, 0.4);
+}
+.btn-secondary-rw {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+}
+.btn-secondary-rw:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.25);
+}
+.btn-danger-rw {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+.btn-danger-rw:hover {
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.75),
+        0 0 60px rgba(239, 68, 68, 0.4);
+}
+/* ============= Footer ============= */
+.footer {
+    margin-top: 3rem;
+    padding: 2.5rem 0 1.5rem;
+    background: rgba(11, 18, 38, 0.7);
+    border-top: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+    margin: 1.5rem 0 1rem;
+}
+/* ============= Reveal on Scroll ============= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ============= Responsive ============= */
+@media (max-width: 575px) {
+    .warning-icon {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+    .hero-alert {
+        padding-top: 2.5rem;
+    }
+    .risk-meter {
+        width: 190px;
+        height: 190px;
+    }
+    .btn-rw {
+        width: 100%;
+        text-align: center;
+    }
+}

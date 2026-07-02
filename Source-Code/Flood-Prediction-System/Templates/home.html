@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rising Waters - A Machine Learning Approach to Flood Prediction</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+
+                <span class="brand-icon">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                </span>
+
+                Rising Waters
+
+            </a>
+
+            <button class="navbar-toggler text-white border-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navMenu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#home">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#about">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/Predict">
+
+                            Predict
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#contact">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-brain"></i>
+
+                Powered by Machine Learning
+
+            </div>
+
+            <h1>Rising Waters</h1>
+
+            <p class="subtitle">
+
+                A Machine Learning Approach to Flood Prediction
+
+            </p>
+
+            <p class="lead">
+
+                Predict flood risk using Artificial Intelligence and Machine Learning by analyzing historical weather and rainfall data.
+
+                The system helps disaster management authorities and local governments make timely decisions using accurate flood predictions.
+
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+
+                <a href="/Predict" class="btn-primary-custom">
+
+                    <i class="fa-solid fa-water"></i>
+
+                    Predict Flood Risk
+
+                </a>
+
+                <a href="#about" class="btn-secondary-custom">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title fade-in">
+
+                <div class="eyebrow">
+
+                    KEY FEATURES
+
+                </div>
+
+                <h2>
+
+                    What Makes Rising Waters Powerful
+
+                </h2>
+
+                <p>
+
+                    A complete machine learning pipeline for flood prediction using historical weather data.
+
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-3 fade-in">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-robot"></i>
+
+                        </div>
+
+                        <h4>Machine Learning</h4>
+
+                        <p>
+
+                            Decision Tree, Random Forest, KNN and XGBoost.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-cloud-rain"></i>
+
+                        </div>
+
+                        <h4>Weather Analysis</h4>
+
+                        <p>
+
+                            Rainfall, humidity, cloud cover and temperature analysis.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon why-icon red">
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        </div>
+
+                        <h4>Early Warning</h4>
+
+                        <p>
+
+                            Instant flood prediction for disaster preparedness.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                        </div>
+
+                        <h4>Fast Prediction</h4>
+
+                        <p>
+
+                            AI-powered prediction results within seconds.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= WORKFLOW ================= -->
+
+    <section class="workflow">
+
+        <div class="container">
+
+            <div class="section-title fade-in">
+
+                <div class="eyebrow">
+
+                    PROJECT WORKFLOW
+
+                </div>
+
+                <h2>
+
+                    Machine Learning Pipeline
+
+                </h2>
+
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-step">
+
+                    <div class="timeline-circle">
+
+                        <i class="fa-solid fa-database"></i>
+
+                    </div>
+
+                    <p>Dataset</p>
+
+                </div>
+
+                <div class="timeline-arrow">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="timeline-step">
+
+                    <div class="timeline-circle">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                    <p>EDA</p>
+
+                </div>
+
+                <div class="timeline-arrow">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="timeline-step">
+
+                    <div class="timeline-circle">
+
+                        <i class="fa-solid fa-filter"></i>
+
+                    </div>
+
+                    <p>Preprocessing</p>
+
+                </div>
+
+                <div class="timeline-arrow">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="timeline-step">
+
+                    <div class="timeline-circle">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+                    <p>Training</p>
+
+                </div>
+
+                <div class="timeline-arrow">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="timeline-step">
+
+                    <div class="timeline-circle">
+
+                        <i class="fa-solid fa-water"></i>
+
+                    </div>
+
+                    <p>Prediction</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+     <!-- ================= WHY THIS PROJECT ================= -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="section-title fade-in">
+
+                <div class="eyebrow">
+
+                    WHY THIS PROJECT?
+
+                </div>
+
+                <h2>
+
+                    Built With Real-World Impact
+
+                </h2>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon red">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                        </div>
+
+                        <h4>Save Lives</h4>
+
+                        <p>
+
+                        Early warnings provide valuable time for evacuation and disaster preparedness.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon blue">
+
+                            <i class="fa-solid fa-house"></i>
+
+                        </div>
+
+                        <h4>Reduce Property Damage</h4>
+
+                        <p>
+
+                        Predicting floods helps reduce infrastructure and property damage.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="glass-card feature-card">
+
+                        <div class="feature-icon cyan">
+
+                            <i class="fa-solid fa-people-group"></i>
+
+                        </div>
+
+                        <h4>Support Disaster Management</h4>
+
+                        <p>
+
+                        AI-powered insights enable authorities to respond faster and more effectively.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+
+                    <div class="stat-card">
+
+                        <h2 class="stat-number" data-target="115">0</h2>
+
+                        <p>Dataset Records</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="stat-card">
+
+                        <h2 class="stat-number" data-target="10">0</h2>
+
+                        <p>Weather Parameters</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="stat-card">
+
+                        <h2 class="stat-number" data-target="4">0</h2>
+
+                        <p>ML Models</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="stat-card">
+
+                    <h2 class="stat-number" data-target="96">0</h2>
+
+                    <p>Prediction Accuracy (%)</p>
+
+                </div>    
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+        <!-- ================= TECHNOLOGY ================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+
+                    TECHNOLOGY STACK
+
+                </div>
+
+                <h2>
+
+                Built With Modern Tools
+
+                </h2>
+
+            </div>
+
+            <div class="tech-badges">
+
+                <div class="tech-badge">
+
+                    <i class="fa-brands fa-python"></i>
+
+                    Python
+
+                </div>
+
+                <div class="tech-badge">
+
+                <i class="fa-solid fa-flask"></i>
+
+                Flask
+
+                </div>
+
+                <div class="tech-badge">
+
+                Pandas
+
+                </div>
+
+                <div class="tech-badge">
+
+                NumPy
+
+                </div>
+
+                <div class="tech-badge">
+
+                Scikit-Learn
+
+                </div>
+
+                <div class="tech-badge">
+
+                XGBoost
+
+                </div>
+
+                <div class="tech-badge">
+
+                HTML5
+
+                </div>
+
+                <div class="tech-badge">
+
+                CSS3
+
+                </div>
+
+                <div class="tech-badge">
+
+                JavaScript
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="container">
+
+            <h2>
+
+                Rising Waters
+
+            </h2>
+
+            <p>
+
+                A Machine Learning Approach to Flood Prediction
+
+            </p>
+
+            <div class="footer-divider"></div>
+
+                <p>
+
+                Developed for
+
+                    <strong>
+
+                        IBM SkillsBuild / SmartBridge Project
+
+                    </strong>
+
+                </p>
+
+            <p>
+
+            © 2026 Rising Waters. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
